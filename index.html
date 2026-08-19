@@ -1,0 +1,1228 @@
+<title>電子商務概論V4備課大綱</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    color-scheme: light;
+    --surface:     #f9f9f7;
+    --card:        #fcfcfb;
+    --ink:         #0b0b0b;
+    --ink-2:       #52514e;
+    --ink-muted:   #898781;
+    --hairline:    #e1e0d9;
+    --border:      rgba(11,11,11,0.10);
+    --accent-ring: #c23a3a;
+    --accent-bg:   #fbeceb;
+
+    --c1: #2a78d6; --c1-tint: #eaf1fb;
+    --c2: #d1592a; --c2-tint: #fbeee7;
+    --c3: #14966a; --c3-tint: #e7f5ef;
+    --c4: #b8860a; --c4-tint: #faf3df;
+    --c5: #c14a78; --c5-tint: #fbedf2;
+    --c6: #2f7a2f; --c6-tint: #edf5ec;
+    --c7: #5b4ea3; --c7-tint: #eeecf9;
+    --c8: #4d6b80; --c8-tint: #eaf0f3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --surface:     #0d0d0d;
+      --card:        #1a1a19;
+      --ink:         #ffffff;
+      --ink-2:       #c3c2b7;
+      --ink-muted:   #898781;
+      --hairline:    #2c2c2a;
+      --border:      rgba(255,255,255,0.12);
+      --accent-ring: #e66767;
+      --accent-bg:   #2a1615;
+
+      --c1: #3987e5; --c1-tint: #14202f;
+      --c2: #d95926; --c2-tint: #2a1c10;
+      --c3: #199e70; --c3-tint: #0f2620;
+      --c4: #c98500; --c4-tint: #2a2110;
+      --c5: #d55181; --c5-tint: #2a151e;
+      --c6: #3fb53f; --c6-tint: #142616;
+      --c7: #9085e9; --c7-tint: #1c1930;
+      --c8: #8fa3b8; --c8-tint: #16222a;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --surface:     #0d0d0d;
+    --card:        #1a1a19;
+    --ink:         #ffffff;
+    --ink-2:       #c3c2b7;
+    --ink-muted:   #898781;
+    --hairline:    #2c2c2a;
+    --border:      rgba(255,255,255,0.12);
+    --accent-ring: #e66767;
+    --accent-bg:   #2a1615;
+
+    --c1: #3987e5; --c1-tint: #14202f;
+    --c2: #d95926; --c2-tint: #2a1c10;
+    --c3: #199e70; --c3-tint: #0f2620;
+    --c4: #c98500; --c4-tint: #2a2110;
+    --c5: #d55181; --c5-tint: #2a151e;
+    --c6: #3fb53f; --c6-tint: #142616;
+    --c7: #9085e9; --c7-tint: #1c1930;
+    --c8: #8fa3b8; --c8-tint: #16222a;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--surface);
+    color: var(--ink);
+    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  }
+  h1, h2, h3 { font-family: "Noto Serif TC", "Noto Sans TC", serif; }
+
+  a { color: inherit; }
+
+  #topbar {
+    position: sticky; top: 0; z-index: 20;
+    background: color-mix(in oklab, var(--card) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .topbar-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .brand { display: flex; flex-direction: column; gap: 1px; margin-right: 6px; }
+  .brand .name { font-size: 15px; font-weight: 900; font-family: "Noto Serif TC", serif; }
+  .brand .sub { font-size: 11px; color: var(--ink-muted); font-variant-numeric: tabular-nums; }
+
+  .search-wrap { position: relative; flex: 1 1 180px; min-width: 140px; max-width: 260px; }
+  .search-wrap input {
+    width: 100%;
+    padding: 7px 12px 7px 30px;
+    border-radius: 8px;
+    border: 1px solid var(--hairline);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+  }
+  .search-wrap input:focus { border-color: var(--c1); }
+  .search-wrap svg { position: absolute; left: 9px; top: 50%; transform: translateY(-50%); opacity: 0.5; pointer-events: none; }
+
+  .toolbtn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 12px; border-radius: 8px;
+    border: 1px solid var(--hairline);
+    background: var(--surface); color: var(--ink-2);
+    font-family: inherit; font-size: 12.5px; font-weight: 500;
+    cursor: pointer; white-space: nowrap;
+  }
+  .toolbtn:hover { border-color: var(--ink-muted); color: var(--ink); }
+  .toolbtn.active { background: var(--accent-bg); border-color: var(--accent-ring); color: var(--accent-ring); }
+
+  .jumpnav { display: flex; gap: 6px; flex-wrap: wrap; margin-left: auto; }
+  .jumpchip {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 5px 9px; border-radius: 999px;
+    border: 1px solid var(--hairline);
+    background: var(--surface);
+    font-family: inherit;
+    font-size: 11.5px; font-weight: 700;
+    text-decoration: none;
+    color: var(--ink-2);
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .jumpchip .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+  .jumpchip:hover { border-color: var(--ink-muted); color: var(--ink); }
+  .jumpchip.active { background: var(--ink); border-color: var(--ink); color: var(--card); }
+  .jumpchip.active .dot { outline: 2px solid var(--card); outline-offset: 1px; }
+
+  #page { max-width: 980px; margin: 0 auto; padding: 28px 24px 80px; }
+
+  .hero { margin-bottom: 26px; }
+  .hero .eyebrow {
+    font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--ink-muted); margin-bottom: 8px;
+  }
+  .hero h1 { font-size: 26px; font-weight: 900; margin: 0 0 8px; line-height: 1.3; text-wrap: balance; }
+  .hero p { font-size: 14px; color: var(--ink-2); line-height: 1.8; max-width: 62ch; margin: 0; }
+
+  .plan-table {
+    margin-top: 22px;
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--card);
+  }
+  .plan-row {
+    display: grid;
+    grid-template-columns: 22px 1.4fr 62px 78px 62px 58px 78px;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-top: 1px solid var(--hairline);
+    font-size: 12.5px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .plan-row:first-child { border-top: none; background: color-mix(in oklab, var(--ink) 4%, var(--card)); font-weight: 700; color: var(--ink-muted); font-size: 11px; letter-spacing: .03em; }
+  .plan-row:not(:first-child):hover { background: color-mix(in oklab, var(--ink) 3%, var(--card)); }
+  .plan-row .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .plan-row .name { font-weight: 700; }
+  .plan-row .num { font-variant-numeric: tabular-nums; text-align: right; color: var(--ink-2); }
+  .plan-row .hours-cell { font-weight: 700; color: var(--ink); }
+  .plan-row:first-child .hours-cell { font-weight: 700; color: var(--ink-muted); }
+  .weightbar { grid-column: 1 / -1; height: 6px; border-radius: 4px; background: var(--hairline); overflow: hidden; margin: 0 16px 12px; display: flex; }
+  .weightbar span { height: 100%; }
+
+  .hours-wrap {
+    display: flex; align-items: center; gap: 8px;
+    margin: 18px 0 -6px;
+    font-size: 12.5px; color: var(--ink-2);
+  }
+  .hours-wrap input {
+    width: 64px;
+    padding: 5px 8px;
+    border-radius: 7px;
+    border: 1px solid var(--hairline);
+    background: var(--card);
+    color: var(--ink);
+    font-family: inherit;
+    font-size: 12.5px;
+    font-variant-numeric: tabular-nums;
+  }
+  .hours-wrap input:focus { outline: none; border-color: var(--c1); }
+
+  .unit {
+    margin-top: 44px;
+    scroll-margin-top: 84px;
+  }
+  .unit-head {
+    display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+    padding-bottom: 14px; margin-bottom: 18px;
+    border-bottom: 3px solid var(--u-color);
+  }
+  .unit-head .idx {
+    font-family: "Noto Serif TC", serif;
+    font-size: 13px; font-weight: 700; color: var(--u-color);
+    border: 1.5px solid var(--u-color); border-radius: 50%;
+    width: 26px; height: 26px; display: flex; align-items: center; justify-content: center;
+    flex: none;
+  }
+  .unit-head h2 { font-size: 20px; font-weight: 900; margin: 0; flex: 1 1 auto; min-width: 200px; }
+  .unit-meta { font-size: 12px; color: var(--ink-muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .unit-copy {
+    border: 1px solid var(--hairline); background: var(--card); color: var(--ink-2);
+    border-radius: 7px; padding: 5px 10px; font-size: 11.5px; cursor: pointer; font-family: inherit;
+  }
+  .unit-copy:hover { border-color: var(--u-color); color: var(--u-color); }
+
+  .subgrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .unit.single .subgrid { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 900px) { .unit.single .subgrid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 700px) { .subgrid, .unit.single .subgrid { grid-template-columns: 1fr; } }
+
+  .back-to-overview {
+    display: none;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--ink-muted);
+    background: none;
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 0 0 16px;
+  }
+  .back-to-overview:hover { color: var(--ink); }
+  body.tab-single .back-to-overview { display: inline-flex; }
+  body.tab-single #plan-table, body.tab-single .hero, body.tab-single .hours-wrap { display: none; }
+
+  .subcard {
+    background: var(--u-tint);
+    border: 1px solid color-mix(in oklab, var(--u-color) 30%, var(--hairline));
+    border-radius: 12px;
+    padding: 14px 16px;
+  }
+  .subcard h3 {
+    font-size: 13.5px; font-weight: 700; margin: 0 0 10px;
+    color: var(--ink);
+    font-family: "Noto Sans TC", sans-serif;
+  }
+  .subcard ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+  .subcard li { font-size: 12.5px; line-height: 1.6; color: var(--ink-2); }
+  .subcard li b { color: var(--ink); font-weight: 700; }
+  .subcard li .star { color: var(--accent-ring); margin-right: 2px; }
+  .subcard li.hot { background: var(--accent-bg); margin: 0 -8px; padding: 4px 8px; border-radius: 6px; }
+
+  .pt-row { position: relative; }
+  .subcard li.expandable { cursor: pointer; }
+  .subcard li.expandable:hover .pt-row { background: color-mix(in oklab, var(--u-color) 8%, transparent); }
+  .subcard li.expandable:focus-visible { outline: 2px solid var(--u-color); outline-offset: 2px; border-radius: 5px; }
+  .subcard li.expandable .pt-row {
+    padding: 2px 44px 2px 4px;
+    margin: -2px -4px;
+    border-radius: 6px;
+  }
+  .expand-mark {
+    position: absolute; right: 0; top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex; align-items: center; gap: 3px;
+    color: var(--u-color);
+    background: color-mix(in oklab, var(--u-color) 14%, transparent);
+    border-radius: 999px;
+    padding: 1px 7px 1px 6px;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .expand-mark .chev { display: inline-block; transition: transform 0.15s ease; }
+  .subcard li.expanded .expand-mark .chev { transform: rotate(180deg); }
+
+  .subcard li .sub-terms {
+    list-style: none;
+    margin: 8px 0 0;
+    padding: 8px 0 2px 12px;
+    border-left: 2px solid color-mix(in oklab, var(--u-color) 45%, var(--hairline));
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .subcard li.expanded .sub-terms { display: flex; }
+  .subcard .sub-terms li { font-size: 12px; color: var(--ink-2); cursor: default; }
+  .subcard .sub-terms li b { color: var(--u-color); font-weight: 700; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .expand-mark { transition: transform 0.15s ease; }
+  }
+
+  li.pt-dim { opacity: 0.28; }
+  li.pt-match { outline: 2px solid var(--c1); outline-offset: 2px; border-radius: 5px; }
+
+  #no-results { display: none; text-align: center; color: var(--ink-muted); font-size: 13px; padding: 60px 0; }
+
+  footer {
+    max-width: 980px; margin: 40px auto 0; padding: 20px 24px 40px;
+    border-top: 1px solid var(--hairline);
+    font-size: 11.5px; color: var(--ink-muted); line-height: 1.9;
+  }
+
+  @media print {
+    #topbar { position: static; }
+    .jumpnav, .search-wrap, #btn-hot, #btn-copyall, .unit-copy, #btn-expand-terms, .hours-wrap { display: none !important; }
+    .expand-mark { display: none !important; }
+    .subcard li .sub-terms { display: flex !important; }
+    body { background: #fff; color: #000; }
+    body.tab-single #plan-table, body.tab-single .hero, body.tab-single .hours-wrap { display: none; }
+  }
+</style>
+
+<div id="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="name" id="brand-name">備課大綱</div>
+      <div class="sub" id="stat-line">載入中…</div>
+    </div>
+    <div class="search-wrap">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="search" type="text" placeholder="搜尋知識點、專有名詞…" autocomplete="off">
+    </div>
+    <button class="toolbtn" id="btn-hot">★ 只看易混淆重點</button>
+    <button class="toolbtn" id="btn-expand-terms">▾ 展開全部名詞說明</button>
+    <button class="toolbtn" id="btn-copyall">複製全部大綱</button>
+    <nav class="jumpnav" id="jumpnav"></nav>
+  </div>
+</div>
+
+<div id="page">
+  <button class="back-to-overview" id="btn-back">← 回總覽</button>
+  <div class="hero">
+    <div class="eyebrow" id="hero-eyebrow">備課參考</div>
+    <h1 id="hero-title">把題庫整理成可以直接拿去排課的大綱</h1>
+    <p id="hero-desc"></p>
+  </div>
+
+  <div class="hours-wrap">
+    <label for="hours-input">總授課時數</label>
+    <input type="number" id="hours-input" min="0" step="0.5" placeholder="例如 18">
+    <span>小時 → 下表自動換算各單元建議時數</span>
+  </div>
+  <div class="plan-table" id="plan-table"></div>
+
+  <div id="units"></div>
+  <div id="no-results">沒有符合「<span id="no-results-q"></span>」的知識點</div>
+
+  <footer id="page-footer"></footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var CONFIG = {
+    pageTitle: "電子商務概論V4備課大綱",
+    courseName: "【TQC】電子商務概論V4-專業級",
+    courseCode: "EC318",
+    heroTitle: null,
+    heroDesc: null,
+    sourceNote: "CSF 雲端練功坊「電子商務概論V4-專業級」練習題庫"
+  };
+
+  var DATA = [
+    {
+      name: "電子商務概念及知識", short: "概念知識", count: 62, key: "c1",
+      subtopics: [
+        { name: "電商基礎技術與早期發展", points: [
+          ["ASP應用服務供應商", "透過網路傳遞，提供應用軟體建置、代管與租賃的線上服務。", 0],
+          ["EDI電子資料交換", "出現在1960年代，早於網際網路，是電子商務的前身。", 1],
+          ["B2B電商四發展階段", "基礎電子商務階段→電子交易市集階段→電子資料交換網路階段→協同商務階段，順序常考排列題。", 1],
+          ["EOS電子訂貨系統", "經濟部商業司定義：結合電腦與通訊、電子資料交換取代傳統下單接單的自動化訂貨系統。", 0],
+          ["POS/EOS/VAN/EDI商業自動化流程", "條碼掃描→POS銷售時點系統→EOS電子訂貨系統→VAN加值網路系統→EDI電子資料交換→物流中心管理系統，順序固定常考。", 1, [
+            ["POS", "銷售時點系統，掃描條碼記錄交易。"],
+            ["EOS", "電子訂貨系統，自動化下單接單。"],
+            ["VAN", "加值網路系統，提供加值通訊服務。"],
+            ["EDI", "電子資料交換，企業間標準化文件交換。"]
+          ]],
+          ["EDI四層架構", "由下到上：實體層→EDI傳輸層→EDI標準層→EDI語意層，出自Kalakota & Whinston 1996。", 1],
+          ["商業自動化廣義定義", "應用資訊科技使商業流程從製造商到零售據點電子化，與行銷/服務/銷售自動化並列選項。", 0]
+        ]},
+        { name: "電商商業模式辨析（核心易混淆）", points: [
+          ["Bricks and Clicks vs Bricks and Mortar", "前者傳統零售商同時經營網路生意；後者純傳統實體零售商。", 1],
+          ["C2C", "消費者對消費者，以二手商品買賣為大宗。", 0],
+          ["O2O", "Online to Offline，鼓勵消費者線上下單、前往實體店面取得產品服務。", 1],
+          ["D2C", "Direct to Consumer，品牌直面消費者，透過自有網站/App/社群銷售，重視顧客體驗一致與資料分析。", 1],
+          ["OMO", "Online Merge Offline，是O2O的升級版，以「消費者」為核心整合線上線下系統。", 1],
+          ["O2O vs D2C vs OMO綜合辨析", "彩妝品牌線上下單+快閃店取貨試妝＝D2C+O2O複合模式；O2O是「引導客源從線上到線下」；OMO以消費者為核心整合虛實。", 1],
+          ["不適合O2O的公司案例", "PCHome 24小時購物因純線上購物無實體店面，不適合用O2O方式行銷。", 0],
+          ["馬雲新零售概念", "核心是網路與實體通路須整合，而非各自獨立發展。", 0]
+        ]},
+        { name: "永續電商與ESG", points: [
+          ["永續電商核心概念", "落實ESG精神，兼顧環境、社會、治理三大面向，避免短視追求長期利益。", 0],
+          ["E環境面", "能源效率、碳排放減量、綠色製造與綠色包裝。", 1],
+          ["S社會面", "企業對員工、顧客、社區等利害關係人的責任與平等。", 1],
+          ["G治理面", "公司治理，董事會組成合宜性、保障股東權益、商業倫理與資訊公開。", 1],
+          ["AI技術應用於永續電商", "碳足跡追蹤、優化配送路線降低能源消耗、優化倉儲節能，非用於增加公司獲利。", 0]
+        ]},
+        { name: "AI應用與新興技術", points: [
+          ["AI智慧客服", "目的是自動化與即時性回應，並非完全取代真人。", 0],
+          ["語音助理核心技術", "語音辨識Speech Recognition＋自然語言處理NLP＋自然語言理解NLU。", 1],
+          ["物聯網IoT定義", "Internet of Things，主要依賴智慧物件自行提供資訊，非依賴人類；可用電子標籤將真實物體連結上網。", 1],
+          ["物聯網技術標準", "ETSI M2M與oneM2M是M2M通訊相關標準；HTML5是網頁標記語言、IEEE Std 12207是軟體開發流程標準，兩者非物聯網標準。", 1],
+          ["區塊鏈特性", "源自比特幣、去中心化分散式系統、採用時間戳伺服器確保區塊序列，非採用序號；採用橢圓曲線數位簽章演算法。", 1],
+          ["金融科技創新服務", "比特幣、區塊鏈、行動支付屬創新服務；金融監理沙盒是管理規章而非服務本身。", 1],
+          ["O2O/D2C的AI趨勢", "個人化推薦＋AI驅動的資料分析，符合O2O與D2C未來發展趨勢。", 0],
+          ["智慧型手機行動商務活動", "股票交易、商品比價、銀行業務、旅遊商品買賣皆屬之。", 0]
+        ]},
+        { name: "電商理論架構與學者觀點", points: [
+          ["Kalakota電商發展四階段", "電子資金轉換→線上服務與知識分享→網路發展與全球資訊網發明→電子資料交換與郵件服務，依1970年代早期到1990年代排序。", 1],
+          ["Kalakota & Whinston電商架構兩大支柱", "公共政策Public Policy與技術標準Technical Standards，支撐網路基礎建設等發展。", 1],
+          ["維基經濟學四種商業模式", "消費者生產模式如YouTube；創意仲介模式；同儕協作模式；平台開放模式；科學知識分享模式。", 1],
+          ["Morgan Stanley市集交易四分類", "買方集中管理電子市集、供應方集中管理電子市集（獨佔優勢供應廠商主導）、市場集聚電子市集、內容匯集電子市集。", 1],
+          ["電商促成者類型與公司配對", "硬體：IBM/Sun；網路：Cisco；安全服務：VeriSign；資料庫：PeopleSoft；另一組：客戶關係管理Cisco／媒體串流RealNetworks／付費系統Foundation／資料庫Exodus。", 1],
+          ["電商應用類型", "賣方型線上服務由供應商建立產品型錄；買方型由買方主導採購網站；線上交易市集為開放交易平台。", 0],
+          ["電子商務價值主張四要素", "以消費者角度，成功電商價值主張包括：產品個人化、銷售價格減低、搜尋成本減低、價格發現成本減低。", 0]
+        ]},
+        { name: "雲端服務、收益模式與交易機制", points: [
+          ["雲端服務類別", "SaaS軟體即服務、PaaS平台即服務、IaaS基礎架構即服務；無HaaS硬體即服務這種說法。", 1],
+          ["雲的比喻", "網際網路上的雲端服務與自然界雲與水循環在特性上相似。", 0],
+          ["電商收益模式", "廣告、訂閱、手續費、合作四種常見模式。", 0],
+          ["拍賣式vs逆拍賣式交易", "逆拍賣＝買方提需求、賣方競價，出價最低者得標，與一般拍賣邏輯相反。", 1],
+          ["網路拍賣", "傳統拍賣移轉到電子作業，標價機制本質相同，節省成本提高效率。", 0],
+          ["拉式生產BTO", "Build to Order接單後生產，由客戶下單產生拉力啟動生產流程。", 0],
+          ["組織因發展電商產生的變化", "組織扁平化＋組織虛擬化。", 0],
+          ["共享經濟公司辨識", "Airbnb、Uber屬共享經濟；Amazon、Cisco是販售商品設備，非共享經濟。", 0],
+          ["P2P電子商務定義", "使用者可直接連接到其他人電腦進行交易或交換，非透過中心化平台。", 0]
+        ]},
+        { name: "電商核心流程與跨境電商", points: [
+          ["電商核心四大流程", "商流、金流、物流、資訊流；不含人力流。", 1],
+          ["跨境電商特性", "需符合相關稅法繳稅，並非一律免稅。", 1],
+          ["大數據vs傳統商業分析", "傳統多採抽樣、先制定模型、多針對結構化資料；大數據探索資料發現新模型、涵蓋非結構化資料。", 1],
+          ["Portal入口網站特性", "具向外連結、搜尋服務、電子商務、電子郵件等特性，需在地化經營。", 0],
+          ["RSS", "Really Simple Syndication簡易資訊聚合，使用XML分發匯集網頁內容。", 0]
+        ]}
+      ]
+    },
+    {
+      name: "電子商務資訊流", short: "資訊流", count: 62, key: "c2",
+      subtopics: [
+        { name: "通訊協定與OSI七層架構", points: [
+          ["通訊協定三法則", "可相互操作性、層級化、終端對應終端；「複雜性」是干擾選項，不是通訊協定法則。", 1],
+          ["OSI七層架構", "實體層/資料連結層/網路層/傳輸層/會議層/表現層/應用層，傳輸層負責端對端約定通訊品質、流量控制。", 1],
+          ["封包 vs 資訊框", "封包是網路層IP封裝單元，含來源/目的IP；資訊框是資料連結層封裝單元，僅含MAC位址。", 1],
+          ["TCP/IP起源與五層架構", "由Robert Kahn與Vint Cerf發明，非美國軍方或ISO；分實體/資料連結/網路/傳輸/應用五層。", 1],
+          ["FTP／HTTP屬OSI應用層協定", "應用層負責提供使用者可直接互動的網路服務。", 0],
+          ["NetBIOS／IPX-SPX／AppleTalk", "NetBIOS是IBM開發的PC網路協定；IPX/SPX是Novell NetWare所用；AppleTalk是Apple為Mac設計的即插即用網路架構。", 0],
+          ["單工／半雙工／全雙工", "Simplex單向；Half Duplex雙向但不可同時；Full Duplex可同時雙向傳輸。", 0]
+        ]},
+        { name: "網路拓樸、規模與定址", points: [
+          ["星狀架構", "以Hub集線器為中心。", 0],
+          ["主從式Client/Server vs 點對點P2P", "主從式資源集中管理、適合大型網路；P2P安裝容易成本低，但有人數上限缺點。", 1],
+          ["網路規模分類 WAN/MAN/LAN", "WAN規模最大，涵蓋都市國家甚至洲界。", 0],
+          ["骨幹網路 Backbone Network", "資訊高速公路，通常用光纖、大量頻寬、價格不斐；非指家用電話線。", 1],
+          ["IP位址基礎知識", "Class B網路位址長度16Bits；IPv4由32Bits組成；255.255.255.0稱為Limited/Local廣播封包。", 0],
+          ["Localhost", "本機測試位址，IPv4為127.0.0.1，IPv6為[::1]。", 0],
+          ["Quadruple Play Service", "四合一寬頻服務，在Triple Play（寬頻上網+電視+電話）基礎上再加Wireless。", 0]
+        ]},
+        { name: "有線寬頻網路技術", points: [
+          ["xDSL家族辨析", "ADSL/VDSL為非對稱Asymmetric；SDSL/HDSL為對稱Symmetric，字首A/S代表意義是核心考點。", 1, [
+            ["ADSL／VDSL", "非對稱Asymmetric，上傳下載速度不同（下載較快）。"],
+            ["SDSL／HDSL", "對稱Symmetric，上傳下載速度相同。"]
+          ]],
+          ["ADSL特性", "下載快於上傳，速度受用戶與機房距離影響，可達8Mbps。", 0],
+          ["Cable Modem纜線數據機", "利用第四台電纜線，現多為雙向傳輸，需分歧器Splitter分離類比與數位訊號。", 0],
+          ["DOCSIS標準", "Data-Over-Cable Service Interface Specifications，CableLabs制定的有線電纜資料通訊國際標準。", 0],
+          ["FTTx光纖到x辨析", "FTTB/FTTN/FTTH/FTTC，FTTH「光纖到家」離用戶最近。", 1],
+          ["PLC電力線通訊", "Power Line Communication，利用家中電線上網。", 0],
+          ["Direct PC 衛星上網", "透過衛星傳輸上網，傳輸品質受天候干擾、接收器角度影響，非電台射頻干擾。", 0]
+        ]},
+        { name: "無線通訊技術世代與協定", points: [
+          ["行動通訊世代辨析", "2G：GSM／PHS；2.5G：GPRS；3.5G：HSDPA；3.75G：HSUPA；3G/4G：WiMAX／LTE，考題常四選一配對世代。", 1],
+          ["CDMA分碼多重存取", "數位式無線通訊技術，非類比式，是常見錯誤陷阱。", 1],
+          ["IEEE 802.11系列 Wi-Fi", "a/b/g/n/ac；BSS基本服務集由多工作站組成，多個BSS串聯為ESS擴展服務集，同ESS用相同SSID。", 1, [
+            ["BSS", "Basic Service Set，基本服務集，由多個工作站組成。"],
+            ["ESS", "Extended Service Set，多個BSS串聯而成的擴展服務集。"],
+            ["SSID", "同一ESS內使用相同的網路識別名稱。"]
+          ]],
+          ["藍牙 Bluetooth", "短距離無線技術，提供低成本、低功率產品使用，非高功率。", 0],
+          ["WAP無線應用協定", "與WWW相容、公開規範，使用WML語言，需WAP Gateway轉譯，三大元件：Client／WAP Gateway／Origin Server。", 1],
+          ["WAP相關協定辨析", "WDP無線封包傳輸協定／WTP無線交易協定／WSP無線交談協定。", 0],
+          ["紅外線區域網路缺點", "傳輸距離短、只能直線傳播；不含對人體傷害、設備昂貴。", 0]
+        ]},
+        { name: "網路設備與連接裝置", points: [
+          ["集線器 Hub", "強化訊號、星狀架構中心。", 0],
+          ["中繼器 Repeater", "強化衰減訊號使其繼續傳遞。", 0],
+          ["橋接器 Bridge", "可連接實體層不同的兩個網路，但上層協定需相同。", 1],
+          ["路由器 Router", "判斷網路位址、選擇傳輸路徑。", 0],
+          ["閘道器 Gateway", "轉換不同協定，可連接協定層次完全不同的網路，轉換能力最強。", 1],
+          ["CSMA/CA vs CSMA/CD", "CSMA/CA應用於無線區域網路IEEE 802.11標準；CSMA/CD應用於乙太網IEEE 802.3標準，兩者常互為干擾選項。", 1, [
+            ["CSMA/CA", "Collision Avoidance，碰撞避免，用於無線區域網路IEEE 802.11。"],
+            ["CSMA/CD", "Collision Detection，碰撞偵測，用於乙太網IEEE 802.3。"]
+          ]]
+        ]},
+        { name: "電子商務網站建置考量", points: [
+          ["委外開發考慮因素", "價格、售後服務、品質；網路頻寬不屬於委外開發考量。", 0],
+          ["系統開發生命週期五階段順序", "規劃→系統分析→系統設計→系統實作→系統維護，考題常考「最先/最後執行項目」。", 1],
+          ["服務量增加因應措施", "垂直擴充硬體、水平擴充硬體、改善網站架構、增加服務人員。", 0],
+          ["建置電商網站考慮因素", "網路基礎建設、組織能力、人力資源、軟硬體設備。", 0],
+          ["HTML5特性", "由W3C制定、可與JavaScript/CSS搭配使用、開放式標準協定、適用智慧型手機。", 0]
+        ]}
+      ]
+    },
+    {
+      name: "電子商務金流與物流", short: "金流物流", count: 54, key: "c3",
+      subtopics: [
+        { name: "行動支付與電子錢包基礎", points: [
+          ["電子錢包定義", "客戶端／伺服器端電子錢包；須軟體＋硬體才能運作；可存放多張信用卡資料；可多人共用分開管理帳戶；不提供貸款、不需找零功能。", 1],
+          ["行動支付業者辨識", "Apple Pay、台灣行動支付twallet+屬行動支付；Uber是叫車服務、比特幣是加密貨幣，皆非行動支付。", 1],
+          ["行動支付技術架構", "NFC近距離無線通訊、QR Code、手機瀏覽器頁面付款、簡訊傳輸交易付款；不含HDMI／USB。", 1],
+          ["行動支付系統架構", "使用者介面／銀行伺服器／電子化收付款處理系統／付款網路四要素。", 0],
+          ["行動支付安全性需求", "認證、機密性、不可否認性；「即時性」不屬安全需求，屬其他非功能需求。", 1],
+          ["行動支付主要參與者", "消費者／銀行／行動網路業者；手機經銷商不涉入行動支付系統。", 0],
+          ["Android行動支付技術", "TSM信任服務管理平台、HCE主機卡模擬；3D Secure是讓信用卡網路安全使用的技術，非行動支付專屬。", 1],
+          ["Visa Token Service", "Visa代碼化技術服務，與TSM、HCE並列為行動支付技術；3D Secure是信用卡網路安全技術，非行動支付專屬技術。", 1, [
+            ["TSM", "信任服務管理平台，將安全元件放在手機SIM卡。"],
+            ["HCE", "主機卡模擬，透過網路與軟體模擬安全元件。"],
+            ["Visa Token Service", "Visa代碼化技術服務，用虛擬卡號取代真實卡號。"],
+            ["3D Secure（非行動支付）", "信用卡網路安全驗證技術，非行動支付專屬機制。"]
+          ]]
+        ]},
+        { name: "智慧卡與電子現金", points: [
+          ["智慧卡定義", "內建記憶體＋CPU及獨立作業系統，IC晶片用DES或RSA加密，具抗磁場干擾能力，可離線作業。", 1],
+          ["智慧卡功能", "不可否認性、機密性、正確性、隱密性。", 0],
+          ["EMV標準", "Europay／MasterCard／Visa三家公司訂定的智慧支付卡標準，即晶片卡／IC卡。", 1],
+          ["電子現金四特性", "貨幣價值、相通性、可轉換性、安全防偽性；多用於小額付款，非大額。", 1],
+          ["悠遊卡", "非接觸式IC智慧卡，不需插卡、感應即可使用。", 0]
+        ]},
+        { name: "第三方支付與P2P", points: [
+          ["第三方支付核心概念", "買賣雙方間增加第三方處理收付款以確保雙方權益，非直接付款免除第三方。", 1],
+          ["業者時序辨識", "PayPal 1998年成立於美國；支付寶／歐付寶／Yahoo奇摩輕鬆付為近年興起。", 1],
+          ["P2P付款系統", "客戶間轉帳服務，是線上儲值付款系統的延伸；PayPal可滿足親友轉帳需求。", 0],
+          ["貨到付款", "到貨時將款項交付服務人員，即「一手交錢一手交貨」的物流方式。", 0],
+          ["訊息存證服務", "公正第三方提供，解決企業與銀行間電子金融交易訊息爭議。", 0],
+          ["付款系統三種命名分類", "線上儲值付款系統(Online Stored Value)／數位支票付款系統(Digital Checking)／數位累計結餘付款系統(Digital Accumulating Balance)，P2P屬線上儲值付款系統的延伸。", 0]
+        ]},
+        { name: "B2B金流機制", points: [
+          ["B2B付款系統功能", "信用審查與付費保證、資金轉移運送儲存機制、產生呈現電子帳單、確保採購不可反悔。", 0],
+          ["EBPP電子帳單呈現與付款系統", "Electronic Bill Presentment and Payment，常見於B2C與B2B交易。", 1],
+          ["EFT電子資金轉帳", "Electronic Funds Transfer，透過電子資料交換授權金融機構轉移調撥資金，B2B常用。", 1],
+          ["B2B交易特性", "付款金額通常大於B2C交易，需月結、信用審查。", 0],
+          ["電子發票", "適用B2C與B2B兩種交易情境，非僅限B2C，常考陷阱。", 1]
+        ]},
+        { name: "交易安全協定與付款架構", points: [
+          ["SET安全電子交易協定", "Secure Electronic Transaction，由消費者端電子錢包、商家伺服器、銀行認證與付款伺服器、憑證管理中心四方組成。", 1],
+          ["SSL／TLS", "傳輸層安全協議，保障網際網路通訊安全與資料完整性，是電子錢包訂定標準之一。", 1],
+          ["電子付款系統整體架構", "買方顧客、賣方商店、收單銀行、認證管理機構為主要組成份子。", 0],
+          ["網路信用卡交易參與者", "持卡者與商家、發卡者、信用卡組織；政府不直接參與，僅負監管之責。", 1],
+          ["Mondex卡", "英國NatWest銀行開發，電子錢包的早期版本，形式上與智慧卡十分相似。", 0],
+          ["電子錢包三個標準", "ECML(Electronic Commerce Modeling Language)／OTP(Open Trading Protocol)／OBI(Open Buying On The Internet)；SSL不算電子錢包專屬標準。", 1, [
+            ["ECML", "Electronic Commerce Modeling Language，電子商務建模語言，統一表單格式。"],
+            ["OTP", "Open Trading Protocol，開放交易協定（注意不是One-Time Password）。"],
+            ["OBI", "Open Buying On The Internet，開放式網路採購協定，用於B2B採購。"]
+          ]]
+        ]},
+        { name: "物流方式", points: [
+          ["電子商務物流方式", "宅配、郵寄、貨運、到店取貨，管道多元。", 0],
+          ["逆向物流 Reverse Logistics", "指退貨，商品送回銷售廠商或供應商的物流。", 1]
+        ]}
+      ]
+    },
+    {
+      name: "電子商務道德及社會議題", short: "道德社會", count: 46, key: "c4",
+      subtopics: [
+        { name: "智慧財產權與網路侵權", points: [
+          ["智慧財產權範疇", "專利、商標、著作權、營業秘密；不含肖像權、隱私權。", 1],
+          ["專利保護期限", "發明專利20年、新型專利10年、新式樣專利12年。", 1],
+          ["美國商標四種申請依據", "實際使用／意圖使用／優先權申請（國內申請提交日起6個月內）／本國註冊。", 1],
+          ["商標定義", "用來表彰商品或勞務來源，使消費者易於辨識的標誌。", 0],
+          ["網路蟑螂 Cybersquatting", "搶先註冊知名公司網域名稱，高價轉賣獲利。", 1],
+          ["框架與深度連結侵權辨析", "用iframe/frame讓別人網頁看似自己網頁＝侵權；深度連結Deep Link不算。", 0],
+          ["未授權下載MP3", "屬於侵犯智慧財產權的行為。", 0]
+        ]},
+        { name: "隱私權保護與資訊蒐集", points: [
+          ["PAPA模式", "Mason 1986：Privacy隱私權／Accuracy正確性／Property所有權／Accessibility存取權；不含「開放性」。", 1],
+          ["隱私權定義", "Warren & Brandeis 1890《The Right to Privacy》：不受干擾的權利Right to be let alone。", 1],
+          ["個人可識別資訊 PII", "姓名、身分證字號、電話等能識別聯絡個人的資料。", 1],
+          ["蒐集個人識別資訊常見管道", "搜尋引擎、購物車、線上表單、會員註冊資料。", 0],
+          ["歐美隱私權保護五大原則", "美國FTC 1998公平資訊實務：通知/提示、選項/同意、存取/參與、安全性/完整性、強制執法/合理補償。", 1],
+          ["Web隱私權技術解決方案", "P3P統一各網站隱私權政策表述格式；Cookie管理器阻擋客戶端接收Cookie。", 0],
+          ["PGP技術", "Pretty Good Privacy，對電子郵件提供加密與驗證的應用程式。", 0],
+          ["合法vs非法私人資訊蒐集", "嘗試開啟他人電子郵件信箱＝違法，牴觸秘密通訊自由與無故入侵電腦罪。", 1],
+          ["FTC 35個線上行銷核心公正規範", "美國聯邦交易委員會建立的35個關於線上行銷策略之核心公正規範，與五大原則是不同框架。", 0]
+        ]},
+        { name: "電腦犯罪與法規遵循", points: [
+          ["電腦網路犯罪八大類", "內政部刑事警察局分類：色情傳布、違禁品販賣、教唆犯罪、網路詐欺、網路恐嚇、毀謗偽造文書、駭客病毒、網路賭博。", 1],
+          ["電腦網路犯罪七大特性", "散布迅速、身分易藏、證據有限、毀證容易、適法困難、跨國管轄、偵查不易。", 1],
+          ["電子支付機構管理條例", "104年三讀，第9條：核准後可兼營電子票證業務。", 0],
+          ["零售業網路交易定型化契約", "經濟部105年公告，規範下單確認機制與標錯價爭議。", 0],
+          ["網路購物七天鑑賞期例外情形", "七種不適用：易腐敗商品、客製化給付、報章雜誌、已拆封影音軟體、線上服務、個人衛生用品、國際航空客運。", 0],
+          ["電子簽章法三大立法原則", "技術中立、契約自由、市場導向；不含「消費者公平」。", 1],
+          ["垃圾郵件管轄權問題", "常源自境外發送，尚無專法可管。", 0]
+        ]},
+        { name: "企業社會責任與利害關係人", points: [
+          ["ISO 26000社會責任指南", "區別於ISO9000品質管理、ISO27001資安管理、ISO/IEC 12207軟體工程。", 1],
+          ["Carroll企業社會責任金字塔", "由下至上：經濟責任→法律責任→倫理責任→慈善責任，慈善責任是企業行有餘力才做的最高層次。", 1],
+          ["主要vs次要利害關係人", "主要：員工、顧客、投資人、股東、政府、社區；次要：媒體、貿易協會、特殊利益團體，不直接與企業交易。", 1],
+          ["社會責任本質", "可視為企業與社會之間的「契約」關係。", 0],
+          ["電子商務基本道德三責任", "行為責任：對自身行為負責／告知責任：向他人負責／法理責任：執法機構允許個人恢復損害。", 1]
+        ]},
+        { name: "道德決策原則與電商治理課題", points: [
+          ["道德兩難分析五步驟", "確認並描述事實→定義兩難找出更高價值→確認利害關係人→確認合理選項→確認選擇的可能影響。", 0],
+          ["道德決策原則辨析", "金律The Golden Rule／普遍主義Universalism／滑坡理論Slippery Slope／集體功利主義（效益主義）／沒有白吃午餐No Free Lunch／風險趨避Risk Aversion。", 1],
+          ["電子商務管制特質", "政府多扮演協助輔導角色，非主導領導角色。", 0],
+          ["電子商務政府最頭痛課題", "司法管轄權＋稅務問題，非頻寬不足或資訊更新問題。", 0],
+          ["辦公室倫理課題", "監看員工郵件收發屬辦公室倫理議題，與資訊技術關係較遠。", 0],
+          ["電子商務道德社會政治議題四類", "知的權利（資訊權）、涉及金錢價值的權利（財產權）、支配管理的權利（管理權）、社會安全與福利。", 0]
+        ]}
+      ]
+    },
+    {
+      name: "電子商務網站建置", short: "網站建置", count: 44, key: "c5",
+      subtopics: [
+        { name: "網站架構與伺服器基礎", points: [
+          ["WWW架構", "全球資訊網一般分為用戶端Client／伺服端Server兩層架構。", 0],
+          ["網頁伺服器功能", "回應使用者對網頁請求的軟體，預設連接埠為80。", 1],
+          ["電商網站必備伺服器", "網頁伺服器＋資料庫伺服器；FTP伺服器、SMTP伺服器不算必備。", 0],
+          ["電商網站系統架構定義", "指資訊系統裡軟體、機器和工作的安排，以達成特定功能，非公司組織架構。", 0],
+          ["W3C", "World Wide Web Consortium，商務網站開發技術常提及的標準組織。", 0],
+          ["ODBC標準介面", "可讓應用程式存取後端資料，不論背後採用哪種資料庫管理系統。", 0],
+          ["建立企業內部網站工具組合", "網站（頁）伺服器、後端資料庫、網頁製作工具、瀏覽器，四者皆為建置內部網站可用的資訊工具。", 0]
+        ]},
+        { name: "網站軟體、伺服器產品與作業系統相容性", points: [
+          ["知名網站伺服器產品", "Microsoft IIS／Apache／Oracle WebLogic／IBM WebSphere；Dreamweaver、Frontpage是網頁設計軟體，不是伺服器軟體。", 0],
+          ["Apache作業系統相容性", "不只適用於Unix，Linux、Windows相關作業系統上也能運作，免費下載，常考「只適用UNIX」的錯誤陷阱。", 1],
+          ["IIS英文全名與特性", "Internet Information Services，不是Server；也適用於Windows XP；可設定虛擬目錄及存取權限、預設文件名稱、是否允許瀏覽目錄，不含存取後端資料庫參數。", 1],
+          ["常見電商後端資料庫", "Oracle、MySQL、SQL Server；Linux是作業系統不是資料庫，常當四選一陷阱。", 0],
+          ["NAS vs SAN儲存比較", "SAN透過光纖通道與主機連結，NAS不是；SAN適合少數人同時讀取，NAS適合大量用戶同時讀取。", 1]
+        ]},
+        { name: "動態網頁技術與程式語言", points: [
+          ["動態網頁伺服端處理架構", "CGI／JSP／ASP／PHP，能處理表單讓瀏覽器與伺服器互動。", 0],
+          ["CGI特性", "Common Gateway Interface，在「伺服端」執行的程式，非用戶端；可用任何符合CGI標準的語言開發。", 1],
+          ["ASP正確全名與特性", "Active Server Pages，微軟為解決CGI開發不易而設計的伺服端程式；原始碼在用戶端無法呈現；可產生動態網頁。", 1],
+          ["ActiveX", "Microsoft開發用來和Java Applet競爭的類似架構。", 0],
+          ["用戶端瀏覽器互動語言", "JavaScript、VBScript可控制瀏覽器端網頁物件、處理近端使用者互動，與CGI/ASP等伺服端技術不同層級。", 0],
+          ["Google App Engine開發語言", "第一個支援的開發語言為Python。", 0]
+        ]},
+        { name: "雲端運算與虛擬化技術", points: [
+          ["XaaS中的IaaS", "Infrastructure as a Service，為基礎設施建置所需，與PaaS、SaaS不同層級。", 0],
+          ["PC作業系統虛擬化產品", "Virtual PC、VirtualBox、VMWare皆屬之；VirtualDub是影音編輯工具，不是虛擬化產品，常當四選一陷阱。", 1]
+        ]},
+        { name: "電商網站規劃、硬體選型與設計原則", points: [
+          ["電商資訊系統設備規劃三面向", "硬體規劃、軟體規劃、系統功能規劃；不含產品規劃。", 0],
+          ["電商網站必備硬體", "伺服器主機＋網路連線，如數據機或固接式網路；不含電話專線、數位相機。", 0],
+          ["慎選網站硬體的目的", "因應尖峰需求容量、避免負載過量、提供效能與服務品質；不含解決網路擁塞問題（那與整體頻寬有關，硬體無法解決）。", 0],
+          ["硬體選擇考慮因素", "儲存體容量、網站速度、系統效能、擴充性。", 0],
+          ["網頁設計原則", "產品分類清楚、提供搜尋功能、內容定期更新；避免大量運用美工與圖片，會降低效能，此為常見錯誤選項。", 1],
+          ["效能隨用戶增加而下降", "網站效能受伺服器輸出入極限與網路連線限制，升級硬體改善效能非線性增加。", 0]
+        ]},
+        { name: "電商營運議題：購物車、客服與物流", points: [
+          ["購物車棄置議題", "顧客放入商品未結帳，企業會分析並納入網路行銷環節；緩和方式包含第三方帳號登入、新會員折扣、精簡註冊欄位；信用卡分期付款無助於緩解註冊繁瑣問題。", 0],
+          ["電商客戶服務目標", "雙向溝通、傾聽並回應解決客訴、提升滿意度；不含單向溝通（電視廣告才是單向溝通例子）。", 0],
+          ["客戶服務相關ISO標準", "ISO 10001:2007、10003:2007、10002:2004針對客訴與滿意度；ISO 27799:2008是健康資訊安全標準，與客服無直接關係，常當四選一陷阱。", 1],
+          ["商品陳列與導覽方式", "依類別陳列、熱銷排行榜、站長推薦；冷門品不會特別列入排行榜，因消費者無購買意願。", 0],
+          ["集運", "多筆訂單商品集中倉庫後一併寄送海外以節省國際運費；送貨收貨同一國則無法節省運費效果；比直送較慢收到商品。", 0],
+          ["Cookies", "動態記錄使用者使用情況，達成網頁內容個人化。", 0],
+          ["網站豐富多媒體效果工具", "Flash、JavaScript；Access、SQL是資料庫，無法達成多媒體效果。", 0]
+        ]}
+      ]
+    },
+    {
+      name: "電子商務的安全機制", short: "安全機制", count: 62, key: "c6",
+      subtopics: [
+        { name: "加密技術與演算法基礎", points: [
+          ["對稱式vs非對稱式加密", "DES是對稱式、RSA是非對稱式，常考互換陷阱；非對稱式將公開金鑰發送給對方、私密金鑰自己持有。", 1, [
+            ["對稱式加密（DES）", "加解密用同一把金鑰，速度快，金鑰位元數為56位元。"],
+            ["非對稱式加密（RSA）", "公鑰加密、私鑰解密，公開金鑰發送給對方、私密金鑰自己持有。"]
+          ]],
+          ["DES金鑰位元數", "56位元，非8/16/32；干擾選項曾出現「NSA與IBM於1950年代開發128位元DES」為錯誤敘述。", 1],
+          ["數位信封", "只用「非對稱式」加密演算法；概念可簡化為「加上金鑰的金鑰」；大型文件不會用非對稱式演算法做全文加密。", 1],
+          ["單向雜湊函數", "One-way Hash Function，產生固定長度輸出、可處理任意大小資料區段、無法找到兩份不同文件有相同訊息摘要。", 0],
+          ["加密的三大主要功能", "訊息完整性Integrity、身分辨識性Authenticity、不可否認性Non-Repudiation；不含「竊聽通訊資料」。", 1]
+        ]},
+        { name: "網路傳輸安全協定", points: [
+          ["TLS", "Transport Layer Security，利用TCP提供點對點安全服務；安全協調程序含交握Handshake、用數位信封傳送顧客程序金鑰、交換憑證；協定採RSA與DES並用。", 1],
+          ["確保網際網路通訊管道安全的工具", "TLS、S-HTTP、VPN、Proxy皆可。", 0],
+          ["VPN與Tunneling", "PPTP接上IP的過程稱為通道Tunneling，非頻道/安全協定/SSL。", 1],
+          ["電子郵件安全傳輸", "PGP、S/MIME、TLS可用；SET不可用。", 1],
+          ["WWW電商交易安全保護常用加密方法", "TLS、SET、S-HTTP。", 0]
+        ]},
+        { name: "網路攻擊手法辨析", points: [
+          ["DoS阻斷服務攻擊", "以無用連線流量壅塞網站癱瘓網路；不會使伺服器全遭破壞；DoS會威脅系統運作。", 1],
+          ["Smurf攻擊", "針對多台網路位置送出Ping請求，捏造特定公司IP位置回應；不屬於監聽Sniffer攻擊。", 1],
+          ["惡意程式 Malicious Code", "病毒、蠕蟲、特洛伊木馬統稱。", 0],
+          ["駭客 vs 怪客 vs 閘道器", "用詞辨析選項組。", 0],
+          ["White Hat／Black Hat／Gray Hat／Red Hat", "企業僱用測試系統安全的道德駭客稱White Hat。", 1],
+          ["重播攻擊防範", "Replay Attack防範：唯一序號法、時間戳記法可防止；數位信封、挑戰與回應不算。", 1],
+          ["Java Applet", "從瀏覽器執行的程式，使網頁互動化，可由網頁下載；無法防止電腦感染所有病毒。", 0]
+        ]},
+        { name: "防火牆與存取控制", points: [
+          ["防火牆 Firewall 定義", "介於網際網路與內部網路間作安全保護的軟體程式，置於網路閘道點，在Intranet和Internet間建立屏障。", 0],
+          ["防火牆限制", "無法防止企業本身內部的安全威脅，也無法防範所有病毒入侵。", 1],
+          ["屏障式閘道器過濾規則", "Screen Host Gateway：不允許外界封包輸入至內部其他主機、不允許內部主機封包輸出至外界網路。", 0],
+          ["存取控制模式", "DAC任意性存取控制／MAC強制性存取控制／RBAC角色基礎存取控制／Bell-Lapadula安全模式；使用者自行決定授權他人存取自己檔案的模式是DAC。", 1, [
+            ["DAC", "Discretionary Access Control，資料擁有者自行決定授權他人存取。"],
+            ["MAC", "Mandatory Access Control，強制性存取控制，由系統統一規範。"],
+            ["RBAC", "Role-Based Access Control，依角色賦予存取權限。"],
+            ["Bell-Lapadula", "以安全等級為核心的正式安全模型。"]
+          ]],
+          ["稽核目標", "確保運作按安全政策執行、資料存取經授權、資料正確性；不含「提供入侵偵測和防禦」。", 1]
+        ]},
+        { name: "身分驗證與電子交易安全機制", points: [
+          ["CA憑證機構", "Certificate Authority，發行數位憑證的單位，非僅政府機關可擔任；發給信用卡持卡人的電子證書稱CCA(Consumer CA)。", 0],
+          ["PKI公開金鑰基礎建設", "支撐數位憑證、加解密運作的整體基礎架構。", 0],
+          ["Kerberos系統", "主要提供身分鑑別服務，非金鑰管理/存取控制/安全稽核。", 1],
+          ["挑戰與回應機制", "Challenge and Response，提供身分鑑別Authenticity服務。", 0],
+          ["身分驗證方法", "數位簽章、數位憑證、生物特徵皆可；封包交換不可。", 0],
+          ["電商安全性六項特性／NCSA四項基石", "隱私性Privacy／Confidentiality、身分驗證Authentication、完整性Integrity、不可否認性Non-Repudiation；「可否認性」為干擾選項。", 1],
+          ["CERT協調中心", "監看追蹤線上犯罪活動、協助找出安全問題、產品評估報告與大眾訓練；不在美國麻省理工學院。", 0],
+          ["資訊安全管理標準規範", "ISO/IEC 17799、BS7799、CNS17800；ISO/TS 16949是汽車產業品質認證，非資安標準，常當干擾選項。", 1],
+          ["Microsoft Passport", "Windows 10用已註冊裝置+Windows Hello生物識別或PIN做雙重要素驗證取代密碼，非用密碼驗證。", 0]
+        ]},
+        { name: "行動支付與信用卡安全", points: [
+          ["Apple Pay", "僅iOS運作，透過NFC通訊，非Android、非QR Code。", 1],
+          ["HCE 主機卡模擬", "Google於2013年提出，透過網路與軟體模擬安全元件。", 1],
+          ["TSM 信任服務管理", "將安全元件放在手機SIM卡，缺點是需換SIM卡才能用；與HCE、3D Secure為三選一辨析組。", 1],
+          ["代碼化技術 Tokenization", "不將信用卡卡號直接在線上傳輸，改用虛擬卡號，降低卡號被竊風險，可讓行動支付免換SIM卡。", 0],
+          ["信用卡3D驗證服務", "VISA稱Verified by VISA、Master稱MasterCard SecureCode；並未使用PKI；相對PKI較不完善但較易普及、不須親自辦理。", 1],
+          ["電子現金系統特性", "具可轉換性、不易複製篡改、具匿名性；「不可回溯性」為錯誤敘述。", 1],
+          ["信用卡網路刷卡最安全機制", "3D驗證服務優於僅用CVV三碼或不用SSL加密。", 0]
+        ]},
+        { name: "電子付款系統安全要求", points: [
+          ["電子付款系統主要安全機制", "加密、電子簽章、身分認證、認證授權。", 0],
+          ["具安全性電子付款系統安全保密要求", "身分認證、加密、完整性、防止拒付。", 0],
+          ["電子商務安全性威脅類型", "信用卡詐欺、DoS攻擊、監聽Sniffer、欺騙Spoof。", 0],
+          ["資料完整性保護可反制操作", "附加數位指紋方式可反制資料修改、資料新增、資料部分刪除；不含「資料偽造」。", 0],
+          ["Internet最危險傳輸方式", "Telnet遠端登錄未加密帳密最危險，優於WWW/FTP/E-mail。", 1],
+          ["網路第一線安全措施", "密碼設定，非信任式保全/生物特徵/主機保全。", 0]
+        ]}
+      ]
+    },
+    {
+      name: "網路行銷概念及應用", short: "行銷概念", count: 66, key: "c7",
+      subtopics: [
+        { name: "網路行銷基礎特性與觀念辨析", points: [
+          ["網路行銷完整定義", "透過網際網路雙向溝通，企業建置網站，消費者藉此獲得資訊與服務。", 0],
+          ["網路行銷不會完全取代傳統行銷", "反覆出現的錯誤敘述陷阱：網路行銷不會完全取代傳統行銷。", 1],
+          ["網路行銷也適用於企業間", "非僅限個人層次，B2B同樣適用網路行銷。", 1],
+          ["公司不一定要有自建網站", "也能從事網路行銷，如透過社群或第三方平台。", 0],
+          ["網路行銷對消費者四大利益", "不受時間限制、不受地點限制、資訊較充足、不受店頭銷售人員影響。", 0],
+          ["網路上傳遞訊息特性", "可較低成本傳遞給顧客，非「大多正確可信」或「廣告效果最好」。", 0],
+          ["Hamill中小企業國際化利益三項", "溝通Communication、行銷情報Marketing Intelligence、行銷與促銷。", 1],
+          ["科特勒行銷定義", "個人和群體經由創造、提供與交易的過程，來滿足需要及慾望所做的種種活動。", 0],
+          ["網路行銷與傳統行銷4P比較", "價格：網路行銷不受關稅限制；通路：網路行銷為虛擬通路空間成本較高；促銷：網路行銷24小時互動、傳統單向傳播；產品：兩者不一定以消費性產品為主。", 0]
+        ]},
+        { name: "Ansoff矩陣與行銷類型辨析", points: [
+          ["Ansoff產品市場矩陣四象限", "市場滲透、市場開發、產品開發、多角化；「為現有客戶開發新/改良產品」＝產品開發，反覆出現的固定考法。", 1, [
+            ["市場滲透", "既有產品賣給既有市場，提高市佔率。"],
+            ["市場開發", "既有產品賣給新市場。"],
+            ["產品開發", "為現有客戶開發新／改良產品。"],
+            ["多角化", "新產品賣給新市場，風險最高。"]
+          ]],
+          ["目標行銷 vs 無差異行銷 vs 差異化行銷 vs 及時行銷", "「針對目標市場做行銷」＝目標行銷，反覆出現的固定考法。", 1],
+          ["目標行銷STP步驟", "Kotler目標行銷步驟：市場區隔(S)→選擇目標市場(T)→市場定位(P)，「選定策略聯盟夥伴」為干擾選項。", 0]
+        ]},
+        { name: "一對一行銷理論（多版本步驟易混淆）", points: [
+          ["Pepper、Rogers與Dorf（1999）步驟", "確認你的顧客→分辨顧客→與顧客互動→提供符合個別需求的產品服務。", 1],
+          ["Don Pepper與Martha Rogers（2000）步驟", "確認→區隔→互動→訂製化，跟上面年份相近作者相似但步驟不同，題目常故意混用測驗。", 1],
+          ["Allen一對一網路行銷四類型", "一對一廣告、一對一交叉銷售/upselling、一對一資訊、一對一服務。", 0],
+          ["一對一網路行銷可達成目的", "提高顧客忠誠度、符合顧客需求認知、提升滿意度、強化企業顧客關係。", 0]
+        ]},
+        { name: "社群行銷、社群媒體與虛擬社群", points: [
+          ["社群行銷 vs 口碑行銷 vs LBS", "社群行銷＝社群媒體互動；口碑行銷＝實體世界口耳相傳；LBS＝掌握消費者地理位置，三者反覆考混淆組合。", 1],
+          ["社群行銷手法辨識", "建立粉絲團、鼓勵打卡、建立LINE群組；不含「觀光景點發送試用品」這種實體行銷。", 0],
+          ["虛擬社群經營關鍵因素", "品牌、顧客關係、內容；不含通路結構。", 0],
+          ["虛擬社群特性", "雙向傳播非單向；成員間共有興趣、藉網路媒體形成、橫向傳播。", 0],
+          ["虛擬社群成員四類與經濟價值", "瀏覽者、使用者、購買者、建設者；經濟價值最小者為瀏覽者。", 1],
+          ["虛擬社群對廠商提供的價值", "不包括「增加顧客購買能力」。", 0],
+          ["網路社群Community概念", "與商務Commerce、內容Content、顧客關係管理CRM並列辨識。", 0],
+          ["電子對話形式辨識", "手機LINE屬於即時訊息＋語音通話，不含匿名公佈欄、成員間電子郵件。", 0],
+          ["虛擬社群會員發展四階段", "依先後順序：吸引會員→增加參與→建立忠貞→獲取價值。", 0]
+        ]},
+        { name: "SEO與網路行銷手法", points: [
+          ["SEO 搜尋引擎最佳化", "Search Engine Optimization，利用搜尋引擎規則提高企業網站於搜尋引擎結果排名，反覆重複出現的高頻考點。", 1],
+          ["常見的網路行銷手法", "部落格（Blog）行銷、關鍵字（Keywords）行銷、聯盟網站行銷（Affiliate Marketing）；藍海策略（Blue Ocean Strategy）是干擾選項。", 0],
+          ["QR Code", "正方形的二維條碼，能儲存的資料較長條型的一維條碼多，可用於儲存網址與其他資料。", 0]
+        ]},
+        { name: "行動行銷與根基理論", points: [
+          ["行動行銷工具辨識", "LINE@生活圈、APP推送通知Push Notification不需另付簡訊SMS費用。", 0],
+          ["RSS不適用於行動行銷", "是訂閱網站文章機制，如新聞或部落格。", 1],
+          ["網路行銷四個根基理論", "直效行銷、關係行銷、一對一行銷、許可行銷Permission Marketing。", 1],
+          ["許可行銷定義", "先向客戶取得許可，再傳送資訊或促銷訊息。", 0],
+          ["推式 vs 拉式策略", "Email或簡訊主動行銷＝推式策略。", 0],
+          ["病毒式行銷特性", "相當於網路上的口耳相傳但比現實快；客戶取得維持成本相對低；謠言快傳是一種威脅。", 0]
+        ]},
+        { name: "網路廣告類型與計費模式", points: [
+          ["廣告類型辨識", "按鈕廣告：面積小類似按鈕；橫幅廣告：頁面上方橫條；跳出式廣告：自動跳出小視窗；捲軸廣告：隨捲頁軸上下移動。", 1],
+          ["最早最常見收費廣告類型", "標題式廣告（Banner Ad.）。", 1],
+          ["CPM定義", "Cost Per Thousand Impression，每千人次曝光收費；計算範例：40萬元／200萬人次×1000=200元。", 1],
+          ["網路廣告主要參與者", "廣告代理商、行銷研究者、流量衡量分析公司、企業入口網站。", 0],
+          ["網路廣告特性", "可區隔觀眾群、清楚記錄顧客反應、可互動；但「容易估計佔有率」做不到。", 0],
+          ["取得率／轉型率／保持率／普及率", "取得率Acquisition Rate＝計算有註冊或參觀產品網頁的參觀者百分比，與轉型率、保持率、普及率並列四選一。", 1, [
+            ["取得率 Acquisition Rate", "有註冊或參觀產品網頁的參觀者百分比。"],
+            ["轉型率 Conversion Rate", "訪客轉換為實際購買者的比率。"],
+            ["保持率 Retention Rate", "顧客持續回訪或續用的比率。"],
+            ["普及率 Reach", "接觸到的潛在受眾涵蓋比例。"]
+          ]],
+          ["插播式廣告與其他廣告類型", "Interstitial Ad.將全頁訊息放在使用者目前網頁及目標網頁之間；另有死路廣告Dead-end Ad.、游標式廣告Nonius Ad.。", 0]
+        ]},
+        { name: "行銷4P/4C對應與資料挖掘應用", points: [
+          ["網路行銷4P對4C對應關係", "Product-顧客需求慾望、Place-便利、Price-成本、Promotion-溝通。", 1],
+          ["資料挖掘 Data Mining 技術類型", "聯結/關聯分析：找出商品購買關聯性；查詢驅使；模型驅使；規則式；過濾式。", 1],
+          ["電子商務交易區隔變數", "地理、人口統計、個人特質、心理變數。", 0],
+          ["AIDA模式四要素", "Attention注意、Interest興趣、Desire慾求、Action行動；易混淆陷阱：第二個I代表Interest非Information。", 1],
+          ["資訊不對稱 Information Asymmetry", "與市場失靈、道德危機、逆向選擇並列辨析。", 0],
+          ["智慧型代理人 Intelligent Agent", "扮演智慧購物搜尋引擎、配對買賣雙方資訊、節省決策時間；「不一定」採自營自銷策略。", 0],
+          ["商品難以差異化時常淪為價格戰", "缺乏差異化的商品容易陷入價格競爭。", 0],
+          ["網路商店通路功能", "配銷後勤服務較好、可執行一對一網路行銷、交易上突破時空便利；「面對面銷售人員溝通模式」不是網路商店的通路功能。", 0],
+          ["企業網路顧客服務範疇", "提供技術和其他資訊、回答顧客詢問、為顧客提供搜尋和比較的途徑；「為顧客發展最佳營運模式」是錯誤選項。", 0],
+          ["網路行銷應用複選", "提供價格檢索系統、刊登網路廣告、推廣線上會員制進行個人化行銷、提供產品替代方案的評估資訊（如比價系統）。", 0]
+        ]}
+      ]
+    },
+    {
+      name: "企業電子化應用範疇", short: "企業電子化", count: 51, key: "c8",
+      subtopics: [
+        { name: "企業電子化核心概念與定義辨析", points: [
+          ["電子化企業 E-Business 定義", "企業運用內部網路、網際網路及相關資訊科技，將企業情報與知識系統與供應商、客戶、員工、合作夥伴緊密結合，以提昇效率。", 0],
+          ["企業電子化 vs 電子商務辨析", "企業電子化較廣義，包含組織內部與外部之協同商務；電子商務較狹義；兩者「並不完全相同」，常考「完全相同」為錯誤陷阱敘述。", 1],
+          ["電子化企業主要應用範圍", "企業流程再造、顧客關係管理、供應鏈管理皆屬之；「六個標準差」是品質管制手法，不屬於電子化企業應用範圍，是高頻陷阱選項。", 1]
+        ]},
+        { name: "供應鏈管理與企業資源規劃演進（兩套排序不可混用）", points: [
+          ["供應鏈管理演進四階段", "MRP物料資源規劃→MRPII第二代物料資源規劃→SCM供應鏈管理→e-Business企業電子化。", 1],
+          ["ERP演進歷程", "MRP→MRPII→ERP→EERP，跟上面供應鏈管理演進是「不同題」的排序，別套錯。", 1],
+          ["MRPII比MRP多的功能", "正解是「供應鏈管理」不是MRPII多出來的功能，是常考陷阱。", 1],
+          ["ERP定義", "經濟部技術處：核心為資料庫、用於企業資訊整合的科技，非只解決企業內部問題。", 0],
+          ["SCM供應鏈管理定義", "物流、資訊流與服務流之管理系統；組成含企業上中下游；源自MRPII概念但加強整合功能；含最終消費者端。", 0],
+          ["長鞭效應 Bullwhip Effect", "中上游製造廠商面對的訂單變異遠「高」於實際需求的變異性。", 1],
+          ["延遲產品差異化", "製造流程先生產中性/家族產品，再分別生產特定終端產品。", 0],
+          ["ERP導入考量因素", "企業與顧客關係管理的聯繫性「不是」建置導入ERP系統所需考量的主要因素。", 0],
+          ["ERP責任歸屬", "是全公司總動員的責任，非僅IT部門。", 0]
+        ]},
+        { name: "知識管理KM與知識轉換模式", points: [
+          ["知識管理 KM 定義", "為達成組織目標，對知識的產生、傳播與運用加以管理的程序與機制。", 0],
+          ["企業電子化最成熟狀態", "＝知識管理系統，能蒐集組織資訊並傳給需要者。", 0],
+          ["資料／資訊／知識定義區辨", "資訊是資料經過儲存、群組、分析、解釋後所產生的，非反過來。", 1],
+          ["內隱知識 vs 外顯知識", "內隱＝無法用文字句子表示的主觀經驗性知識；外顯＝可用文數字系統化語言傳遞的客觀理性知識，個人主觀經驗性知識常被誤判為外顯知識。", 1],
+          ["SECI知識轉換四模式", "社會化Socialization內隱→內隱；外部化Externalization內隱→外顯；內部化Internalization外顯→內隱；組合Combination外顯→外顯。", 1, [
+            ["社會化 Socialization", "內隱知識傳遞給內隱知識，如師徒間的經驗傳承。"],
+            ["外部化 Externalization", "內隱知識轉化為外顯知識，如把經驗寫成文件。"],
+            ["內部化 Internalization", "外顯知識轉化為內隱知識，如讀文件後內化成個人經驗。"],
+            ["組合 Combination", "外顯知識與外顯知識重新整合，如彙整多份文件成新報告。"]
+          ]],
+          ["Arthur Andersen知識管理公式", "KM=(P+I)^S，P代表人員People、I代表資訊Information、S代表分享Share；「組織知識」「技能」為干擾選項。", 1],
+          ["情境判讀", "部門主管定期傳送技術資訊給資訊部整理提供各部門參考＝企業正在建構知識管理系統。", 0]
+        ]},
+        { name: "顧客關係管理CRM與顧客價值理論", points: [
+          ["CRM概念敘述", "可提供顧客交易網上查詢＋各家同業產品價格比較，非以資訊保密為由拒絕提供。", 0],
+          ["POS系統與CRM整合", "POS系統獲得的資訊可提供CRM系統進行整合行銷、銷售和服務。", 0],
+          ["資料倉儲與資料挖掘在CRM的應用", "Data Warehouse／Data Mining技術提升有助於CRM系統運作。", 0],
+          ["Wayland與Cole顧客關係價值羅盤四面向", "客戶組合管理、價值定位、附加價值角色、報酬與風險的分享；「顧客關係管理」本身不屬於這四面向之一，是陷阱選項。", 1]
+        ]},
+        { name: "數位內容與智財相關概念", points: [
+          ["數位內容 Digital Content 定義", "圖像、文字、影像、語音數位化整合運用之產品或服務。", 0],
+          ["行政院數位內容產業內容軟體四範疇", "內容工具、平台軟體、內容應用軟體、內容專業服務。", 0],
+          ["數位典藏 Digital Archive", "以數位方式處理＋加上原數據Metadata描述儲存。", 0],
+          ["數位版權管理 DRM", "防止數位內容被非法複製與侵權使用的保護管理機制。", 0],
+          ["MPEG視訊壓縮標準", "主要僅三種：MPEG-1、MPEG-2、MPEG-4，無MPEG-3，常考四選一找出「不是」的選項。", 1]
+        ]},
+        { name: "行動商務、行動通訊技術與網路標準", points: [
+          ["行動商務客戶端工具", "智慧型手機／智慧手錶／平板電腦；不含桌上型電腦。", 0],
+          ["HTML5行動商務網站適用性", "W3C於2014年10月完成標準制定；可搭配JavaScript繪圖、指定鍵盤型態、CSS3加陰影效果、嵌入<video>標籤；不適合用Flash，因多數智慧型手機不支援。", 1],
+          ["Android／iOS內建瀏覽器", "Android主要用Chrome；iOS用Safari。", 0],
+          ["行動通訊技術標準演進", "AMPS類比式最早起步→GSM第2代→GPRS第2.5代→WCDMA第3代，後三者皆屬數位式技術。", 1],
+          ["第三代行動通訊系統鑑別機制", "正解為網路與用戶的「雙向」鑑別機制，非單向。", 0]
+        ]},
+        { name: "企業電子化延伸應用", points: [
+          ["線上學習 e-Learning 定義", "個人透過電腦上網閱讀或取得學習內容進行學習。", 0],
+          ["線上學習主要參與者", "授課教師／學員／系統管理者；不含實體校園。", 0],
+          ["遠距教學系統", "＝線上學習概念之應用。", 0],
+          ["語音辨識系統目標", "將人類語音內容轉換為相應文字；「可試圖瞭解文字並用適當答案與意見回應」不是語音辨識系統的定義，是常考陷阱敘述。", 1],
+          ["VoIP網路電話", "聲音可經由網路協定的產品及應用，允許人們用言語在網路上溝通。", 0],
+          ["運籌管理定義", "一門規劃、組織及管理任何提供產品或服務之活動的科學。", 0],
+          ["全球運籌管理定義", "以全球角度，經濟有效規劃控制原物料、半成品、製成品以及相關服務資訊的流通處理之整體管理流程，以較低成本提供服務。", 0]
+        ]}
+      ]
+    }
+  ];
+
+  document.getElementById("brand-name").textContent = CONFIG.pageTitle;
+  document.getElementById("hero-eyebrow").textContent = CONFIG.courseName + "・備課參考";
+
+  var totalQuestions = 0, totalSub = 0, totalLeaf = 0, totalHot = 0;
+  DATA.forEach(function (cat) {
+    totalQuestions += cat.count;
+    cat.subtopics.forEach(function (sub) {
+      totalSub++;
+      sub.points.forEach(function (p) { totalLeaf++; if (p[2]) totalHot++; });
+    });
+  });
+
+  document.getElementById("stat-line").textContent = DATA.length + "大類・" + totalSub + "子主題・共" + totalQuestions + "題";
+  document.getElementById("hero-title").textContent =
+    CONFIG.heroTitle || ("把 " + totalQuestions + " 題題庫，整理成可以直接拿去排課的大綱");
+  document.getElementById("hero-desc").textContent =
+    CONFIG.heroDesc || ("依 " + DATA.length + " 大類、" + totalSub + " 個子主題整理知識點，附建議授課比重，帶 ★ 的是題庫中特別容易混淆或高頻出現的重點，排課時可以多留一點時間。");
+  document.getElementById("page-footer").innerHTML =
+    "資料來源：" + escapeHtml(CONFIG.sourceNote) + "（" + escapeHtml(CONFIG.courseCode) + "）題目解析內容整理，共 " + totalQuestions + " 題。知識點文字為AI依題庫內容摘要整理，正式授課前建議對照原始題目複核。";
+
+  var jumpnav = document.getElementById("jumpnav");
+
+  var overviewChip = document.createElement("button");
+  overviewChip.type = "button";
+  overviewChip.className = "jumpchip";
+  overviewChip.setAttribute("data-tab", "overview");
+  overviewChip.textContent = "總覽";
+  jumpnav.appendChild(overviewChip);
+
+  DATA.forEach(function (cat, i) {
+    var a = document.createElement("button");
+    a.type = "button";
+    a.className = "jumpchip";
+    a.setAttribute("data-tab", String(i));
+    a.innerHTML = '<span class="dot" style="background:var(--' + cat.key + ')"></span>' + (i + 1) + ". " + escapeHtml(cat.short || cat.name);
+    jumpnav.appendChild(a);
+  });
+
+  var planTable = document.getElementById("plan-table");
+  var header = document.createElement("div");
+  header.className = "plan-row";
+  header.innerHTML = "<span></span><span>單元</span><span class='num'>題數</span><span class='num'>比重</span><span class='num'>子主題</span><span class='num'>重點★</span><span class='num'>建議時數</span>";
+  planTable.appendChild(header);
+
+  var hoursCells = [];
+
+  DATA.forEach(function (cat, i) {
+    var hotCount = 0, subCount = cat.subtopics.length;
+    cat.subtopics.forEach(function (s) { s.points.forEach(function (p) { if (p[2]) hotCount++; }); });
+    var fraction = totalQuestions ? cat.count / totalQuestions : 0;
+    var pct = Math.round(fraction * 100);
+
+    var row = document.createElement("a");
+    row.className = "plan-row";
+    row.href = "#unit-" + i;
+    row.setAttribute("data-tab", String(i));
+    row.innerHTML =
+      '<span class="dot" style="background:var(--' + cat.key + ')"></span>' +
+      '<span class="name">' + (i + 1) + ". " + escapeHtml(cat.name) + "</span>" +
+      '<span class="num">' + cat.count + "題</span>" +
+      '<span class="num">約 ' + pct + "%</span>" +
+      '<span class="num">' + subCount + "</span>" +
+      '<span class="num">' + hotCount + "</span>" +
+      '<span class="num hours-cell">—</span>';
+    planTable.appendChild(row);
+    hoursCells.push({ el: row.querySelector(".hours-cell"), fraction: fraction });
+
+    var bar = document.createElement("div");
+    bar.className = "weightbar";
+    bar.innerHTML = '<span style="width:' + pct + '%; background:var(--' + cat.key + ')"></span>';
+    planTable.appendChild(bar);
+  });
+
+  var hoursInput = document.getElementById("hours-input");
+  hoursInput.addEventListener("input", function () {
+    var total = parseFloat(hoursInput.value);
+    var valid = !isNaN(total) && total > 0;
+    if (!valid) {
+      hoursCells.forEach(function (c) { c.el.textContent = "—"; });
+      return;
+    }
+    var totalSlots = Math.max(0, Math.round(total * 2));
+    var raw = hoursCells.map(function (c) { return c.fraction * totalSlots; });
+    var base = raw.map(Math.floor);
+    var used = base.reduce(function (a, b) { return a + b; }, 0);
+    var remainder = totalSlots - used;
+    var order = raw
+      .map(function (v, i) { return { i: i, frac: v - base[i] }; })
+      .sort(function (a, b) { return b.frac - a.frac; });
+    for (var k = 0; k < remainder && k < order.length; k++) { base[order[k].i]++; }
+    hoursCells.forEach(function (c, i) { c.el.textContent = (base[i] * 0.5).toFixed(1) + "h"; });
+  });
+
+  var unitsEl = document.getElementById("units");
+  DATA.forEach(function (cat, ci) {
+    var section = document.createElement("section");
+    section.className = "unit";
+    section.id = "unit-" + ci;
+    section.style.setProperty("--u-color", "var(--" + cat.key + ")");
+    section.style.setProperty("--u-tint", "var(--" + cat.key + "-tint)");
+
+    var head = document.createElement("div");
+    head.className = "unit-head";
+    var subCount = cat.subtopics.length;
+    head.innerHTML =
+      '<span class="idx">' + (ci + 1) + "</span>" +
+      "<h2>" + escapeHtml(cat.name) + "</h2>" +
+      '<span class="unit-meta">' + cat.count + "題・" + subCount + "個子主題</span>" +
+      '<button class="unit-copy" data-ci="' + ci + '">複製本單元大綱</button>';
+    section.appendChild(head);
+
+    var grid = document.createElement("div");
+    grid.className = "subgrid";
+    cat.subtopics.forEach(function (sub) {
+      var card = document.createElement("div");
+      card.className = "subcard";
+      var h3 = document.createElement("h3");
+      h3.textContent = sub.name;
+      card.appendChild(h3);
+      var ul = document.createElement("ul");
+      sub.points.forEach(function (p) {
+        var terms = p[3];
+        var li = document.createElement("li");
+        li.className = "pt" + (p[2] ? " hot" : "") + (terms ? " expandable" : "");
+        var termsText = terms ? terms.map(function (t) { return t[0] + " " + t[1]; }).join(" ") : "";
+        li.setAttribute("data-text", (p[0] + " " + p[1] + " " + termsText).toLowerCase());
+        li.innerHTML =
+          '<div class="pt-row">' +
+          (p[2] ? '<span class="star">★</span>' : "") +
+          "<b>" + escapeHtml(p[0]) + "</b>　" + escapeHtml(p[1]) +
+          (terms ? '<span class="expand-mark" aria-hidden="true">展開<span class="chev">▾</span></span>' : "") +
+          "</div>";
+        if (terms) {
+          var sub2 = document.createElement("ul");
+          sub2.className = "sub-terms";
+          terms.forEach(function (t) {
+            var li2 = document.createElement("li");
+            li2.innerHTML = "<b>" + escapeHtml(t[0]) + "</b>　" + escapeHtml(t[1]);
+            sub2.appendChild(li2);
+          });
+          li.appendChild(sub2);
+          li.setAttribute("tabindex", "0");
+          li.setAttribute("role", "button");
+          li.setAttribute("aria-expanded", "false");
+          li.addEventListener("click", function () { toggleExpand(li); });
+          li.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleExpand(li); }
+          });
+        }
+        ul.appendChild(li);
+      });
+      card.appendChild(ul);
+      grid.appendChild(card);
+    });
+    section.appendChild(grid);
+    unitsEl.appendChild(section);
+  });
+
+  var currentTab = "overview";
+
+  function setActiveTab(tabId, opts) {
+    opts = opts || {};
+    currentTab = tabId;
+    var isOverview = tabId === "overview";
+
+    document.body.classList.toggle("tab-single", !isOverview);
+
+    DATA.forEach(function (cat, i) {
+      var el = document.getElementById("unit-" + i);
+      var show = isOverview || String(i) === String(tabId);
+      el.style.display = show ? "" : "none";
+      el.classList.toggle("single", !isOverview && show);
+    });
+
+    Array.prototype.forEach.call(jumpnav.querySelectorAll(".jumpchip"), function (chip) {
+      chip.classList.toggle("active", chip.getAttribute("data-tab") === String(tabId));
+    });
+
+    if (!opts.skipHash) {
+      history.replaceState(null, "", "#" + (isOverview ? "overview" : "unit-" + tabId));
+    }
+    applySearchFilter();
+    if (!opts.skipScroll) window.scrollTo({ top: 0, behavior: "auto" });
+  }
+
+  document.addEventListener("click", function (e) {
+    var tabEl = e.target.closest("[data-tab]");
+    if (tabEl) {
+      e.preventDefault();
+      setActiveTab(tabEl.getAttribute("data-tab"));
+    }
+  });
+
+  document.getElementById("btn-back").addEventListener("click", function () {
+    setActiveTab("overview");
+  });
+
+  function initTabFromHash() {
+    var h = location.hash.replace("#", "");
+    var m = h.match(/^unit-(\d+)$/);
+    if (m && DATA[parseInt(m[1], 10)]) {
+      setActiveTab(m[1], { skipHash: true, skipScroll: true });
+    } else {
+      setActiveTab("overview", { skipHash: true, skipScroll: true });
+    }
+  }
+
+  function toggleExpand(li) {
+    var isOpen = li.classList.toggle("expanded");
+    li.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  function outlineText(ci) {
+    var cat = DATA[ci];
+    var lines = [cat.name + "（" + cat.count + "題）", ""];
+    cat.subtopics.forEach(function (sub) {
+      lines.push("■ " + sub.name);
+      sub.points.forEach(function (p) {
+        lines.push("　" + (p[2] ? "★ " : "・") + p[0] + "：" + p[1]);
+        if (p[3]) {
+          p[3].forEach(function (t) { lines.push("　　- " + t[0] + "：" + t[1]); });
+        }
+      });
+      lines.push("");
+    });
+    return lines.join("\n");
+  }
+  function copyText(text, btn) {
+    var done = function () {
+      var old = btn.textContent;
+      btn.textContent = "已複製 ✓";
+      setTimeout(function () { btn.textContent = old; }, 1600);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done).catch(function () { fallbackCopy(text); done(); });
+    } else {
+      fallbackCopy(text); done();
+    }
+  }
+  function fallbackCopy(text) {
+    var ta = document.createElement("textarea");
+    ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest(".unit-copy");
+    if (btn) copyText(outlineText(parseInt(btn.getAttribute("data-ci"), 10)), btn);
+  });
+
+  document.getElementById("btn-copyall").addEventListener("click", function (e) {
+    var all = DATA.map(function (_, i) { return outlineText(i); }).join("\n");
+    copyText(CONFIG.courseName + "　備課大綱\n\n" + all, e.currentTarget);
+  });
+
+  var termsExpanded = false;
+  document.getElementById("btn-expand-terms").addEventListener("click", function (e) {
+    termsExpanded = !termsExpanded;
+    e.currentTarget.textContent = termsExpanded ? "▴ 收合全部名詞說明" : "▾ 展開全部名詞說明";
+    Array.prototype.forEach.call(document.querySelectorAll(".subcard li.expandable"), function (li) {
+      li.classList.toggle("expanded", termsExpanded);
+      li.classList.remove("auto-expanded");
+      li.setAttribute("aria-expanded", termsExpanded ? "true" : "false");
+    });
+  });
+
+  var hotOn = false;
+  document.getElementById("btn-hot").addEventListener("click", function (e) {
+    hotOn = !hotOn;
+    e.currentTarget.classList.toggle("active", hotOn);
+    Array.prototype.forEach.call(document.querySelectorAll(".subcard li"), function (li) {
+      li.classList.toggle("pt-dim", hotOn && !li.classList.contains("hot"));
+    });
+  });
+
+  var searchInput = document.getElementById("search");
+
+  function applySearchFilter() {
+    var q = searchInput.value.trim().toLowerCase();
+    var anyMatch = false;
+    var isOverview = currentTab === "overview";
+
+    DATA.forEach(function (cat, i) {
+      var unit = document.getElementById("unit-" + i);
+      var tabEligible = isOverview || String(i) === String(currentTab);
+      if (!tabEligible) return;
+
+      var unitHasMatch = false;
+      Array.prototype.forEach.call(unit.querySelectorAll(".subcard"), function (card) {
+        var cardHasMatch = false;
+        Array.prototype.forEach.call(card.querySelectorAll("li.pt"), function (li) {
+          var isMatch = q && li.getAttribute("data-text").indexOf(q) !== -1;
+          li.classList.toggle("pt-match", !!isMatch);
+          li.classList.toggle("pt-dim", !!q && !isMatch);
+          if (isMatch) {
+            cardHasMatch = true;
+            anyMatch = true;
+            if (li.classList.contains("expandable") && !li.classList.contains("expanded")) {
+              li.classList.add("expanded", "auto-expanded");
+              li.setAttribute("aria-expanded", "true");
+            }
+          } else if (li.classList.contains("auto-expanded")) {
+            li.classList.remove("expanded", "auto-expanded");
+            li.setAttribute("aria-expanded", "false");
+          }
+        });
+        card.style.display = (!q || cardHasMatch) ? "" : "none";
+        if (cardHasMatch) unitHasMatch = true;
+      });
+
+      if (isOverview) unit.style.display = (!q || unitHasMatch) ? "" : "none";
+    });
+
+    document.getElementById("no-results").style.display = (q && !anyMatch) ? "block" : "none";
+    document.getElementById("no-results-q").textContent = q;
+  }
+
+  searchInput.addEventListener("input", applySearchFilter);
+
+  initTabFromHash();
+})();
+</script>
